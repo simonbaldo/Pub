@@ -6,7 +6,7 @@
 class MyClock{
 
     private:	
-		uint16_t dlay;
+	uint16_t dlay;
         uint8_t ora;
         uint8_t min;
         uint8_t sec;
@@ -19,11 +19,11 @@ class MyClock{
         void init();
         void run();
         void setOra(uint8_t oo);
-		uint8_t getOra();
+	uint8_t getOra();
         void setMin(uint8_t mm);
-		uint8_t getMin();
+	uint8_t getMin();
         void setSec(uint8_t ss);
-		void setTime(uint8_t oo, uint8_t mm, uint8_t ss);		
+	void setTime(uint8_t oo, uint8_t mm, uint8_t ss);		
         char * getHMS();
         void cback(void (*fpp) (void));
         void mostraOra();
