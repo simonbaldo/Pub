@@ -6,7 +6,7 @@
 class MyTimer {
 
     private:	
-		uint16_t dlay;
+	uint16_t dlay;
         uint32_t tprec;		
         void (*fc) (void);
       
