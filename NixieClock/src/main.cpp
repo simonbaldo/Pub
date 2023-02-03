@@ -4,7 +4,7 @@
 #include "MyTimer.h"
 
 Pulsante p1(18, 3); //pin pulsante, secondi per attivare il flag longPress
-Pulsante p2(19, 3);
+//Pulsante p2(19, 3);
 
 //MyClock cl(1000;); //definizione dell'orologio ad 1 secondo
 MyClock cl(998);
@@ -58,7 +58,7 @@ void testPressedButton() {
 	//2 - pressione prolungata del tasto
 	
     timeDiff1=p1.released();
-    timeDiff2=p2.released();
+    //timeDiff2=p2.released();
 
     if (timeDiff1 == 2) {
    	   if (!longPress) {
@@ -74,7 +74,8 @@ void testPressedButton() {
 	  }
     }    
 
-    if (longPress && timeDiff2 > 0 ) {
+    //if (longPress && timeDiff2 > 0 ) {
+      if (longPress && timeDiff1 == 1 ) {	
        if (modImpo==1) {
        // cl.addOra();
 	      oraC1++;
@@ -108,7 +109,8 @@ void testPressedButton() {
        }
     }   
 
-    if (longPress && (timeDiff1 >0)) {
+    //if (longPress && (timeDiff1 >0)) {
+      if (longPress && (timeDiff1 == 2)) {	
           modImpo++;
           if  (modImpo==5) {
               longPress=false;
