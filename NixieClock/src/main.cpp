@@ -3,7 +3,7 @@
 #include "MyClock.h"
 #include "MyTimer.h"
 
-Pulsante p1(18, 3); //pin pulsante, secondi per attivare il flag longPress
+Pulsante p1(18, 3); //pin pulsante A4, secondi per attivare il flag longPress
 //Pulsante p2(19, 3);
 
 //MyClock cl(1000;); //definizione dell'orologio ad 1 secondo
