@@ -33,7 +33,8 @@ uint8_t catodoPrec;
 uint8_t cifraDisp;
 uint8_t delayInitD=80;
 
-uint8_t catodi[10]={3, 4, 5, 6, 7, 8, 9, 10, 11, 12}; //array contente le uscite per i catodi per le cifre da 0 a 9
+//uint8_t catodi[10]={3, 4, 5, 6, 7, 8, 9, 10, 11, 12}; //array contente le uscite per i catodi per le cifre da 0 a 9
+uint8_t catodi[10]={10, 3, 4, 5, 6, 7, 12, 11, 8, 9}; //array contente le uscite per i catodi per le cifre da 0 a 9
 
 char str[15];
 
