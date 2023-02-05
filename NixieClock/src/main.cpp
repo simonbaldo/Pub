@@ -7,7 +7,7 @@ Pulsante p1(18, 3); //pin pulsante A4, secondi per attivare il flag longPress
 //Pulsante p2(19, 3);
 
 //MyClock cl(1000;); //definizione dell'orologio ad 1 secondo
-MyClock cl(998);
+MyClock cl(999);
 
 MyTimer tm(11000);   //imposto un timer ogni 11 secondi per la visualizzazione
 MyTimer ti(900);     //imposto un timer per la visualizzazione delle impostazioni
@@ -17,7 +17,7 @@ boolean visCifra=false;
 boolean visualizzaOra=false;
 boolean dispAcceso=true;
 boolean acqOra=true;
-boolean initDisplay=true;
+//boolean initDisplay=true;
 
 uint32_t tpinitD=0;   
 uint8_t timeDiff1;  //variabile per pulsante 1
@@ -31,11 +31,10 @@ uint8_t oraset;
 uint8_t minset;
 uint8_t catodoPrec;
 uint8_t cifraDisp;
-uint8_t delayInitD=80;
+//uint16_t delayInitD=400;
 
 //uint8_t catodi[10]={3, 4, 5, 6, 7, 8, 9, 10, 11, 12}; //array contente le uscite per i catodi per le cifre da 0 a 9
-uint8_t catodi[10]={10, 3, 4, 5, 6, 7, 12, 11, 8, 9}; //array contente le uscite per i catodi per le cifre da 0 a 9
-
+uint8_t catodi[10]={10, 7, 6, 5, 4, 3, 8, 9, 12, 11}; //array contente le uscite per i catodi per le cifre da 0 a 9
 char str[15];
 
 //signature function
@@ -44,7 +43,7 @@ void display();
 void displayImpostazioni();
 void displayOra();
 void scomponiOra();
-void cifreInitDisplay();
+//void cifreInitDisplay();
 void visualizzaCifra();
 void dispOra(uint8_t);
 void visOra();
@@ -76,7 +75,7 @@ void testPressedButton() {
     }    
 
     //if (longPress && timeDiff2 > 0 ) {
-      if (longPress && timeDiff1 == 1 ) {	
+	if (longPress && timeDiff1 == 1 ) {	
        if (modImpo==1) {
        // cl.addOra();
 	      oraC1++;
@@ -111,7 +110,7 @@ void testPressedButton() {
     }   
 
     //if (longPress && (timeDiff1 >0)) {
-      if (longPress && (timeDiff1 == 2)) {	
+	if (longPress && (timeDiff1 == 2)) {	
           modImpo++;
           if  (modImpo==5) {
               longPress=false;
@@ -195,7 +194,7 @@ void scomponiOra() {
 	minC2=(uint8_t)(cl.getMin() % 10);	
 }
 
-
+/*
 //esegue uno display delle cifre da 0 a 9 prima di mostrare l'ora
 void cifreInitDisplay() {
 	
@@ -211,7 +210,7 @@ void cifreInitDisplay() {
 		dispOra(99);
 	}
 }
-
+*/
 //display delle cifre dell'ora
 void displayOra() {
 	
@@ -219,10 +218,10 @@ void displayOra() {
    if  (visualizzaOra) {
 	   
 	   //visualizza una sequenza di cifre da 0 a 9
-	   if  (initDisplay) {
-		   cifreInitDisplay();
-		   return;
-	   }
+	  // if  (initDisplay) {
+	  //	   cifreInitDisplay();
+	  //	   return;
+	  // }
 	   
 	   if (acqOra) {
 		   scomponiOra();
@@ -290,7 +289,7 @@ void visOra() {
   visualizzaOra=true; 
   dispAcceso=true;  
   acqOra=true;
-  initDisplay=true;
+  //initDisplay=true;
   
   cifraDisp=0;    
 }
@@ -341,16 +340,15 @@ void setup() {
 //main loop
 void loop() {
 
-	//avvio timer per visualizzazione cifre orologio
-	tm.run();
+  //avvio timer per visualizzazione cifre orologio
+    tm.run();
 	
-	//avvio orologio
+  //avvio orologio
     cl.run();
 
-    //verifica pressione dei pulsanti per impostazione ora
+  //verifica pressione dei pulsanti per impostazione ora
     testPressedButton();	
 	
-	//mostro ora oppure impostazioni 
-	display();
+  //mostro ora oppure impostazioni 
+    display();
 }
-
