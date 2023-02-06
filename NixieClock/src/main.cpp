@@ -163,15 +163,15 @@ void dispOra(uint8_t cc) {
 	 if  (catodoPrec!=99)
 		 digitalWrite(catodi[catodoPrec], LOW);
 	
-	  if (cc==99) 
-		  strcpy(str, "          ");
+	//  if (cc==99) 
+	//	  strcpy(str, "          ");
 		 //str[0]=" ";
-	  else {       
-		  sprintf(str, "%01d %s", cc, cl.getHMS());
-    }  
+	//  else {       
+	//	  sprintf(str, "%01d %s", cc, cl.getHMS());
+    //}  
 	
-     Serial.print("\r");	
-     Serial.print(str);
+    //Serial.print("\r");	
+    //Serial.print(str);
 
      //spegniNotte = 0 accende il display, mentre spegniNotte=1 spegne il display dalle 23 alle 5:59
 	 if (cc!=99 && spegniNotte == 0 ) 
@@ -395,7 +395,7 @@ void dummyFunc() {
 //setup
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(9600);
+  //Serial.begin(9600);
     
   //impostazione variabile per impostazione orario
   modImpo=0;
