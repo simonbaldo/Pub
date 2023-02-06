@@ -456,10 +456,10 @@ void setup() {
 //main loop
 void loop() {
 
-//avvio timer per visualizzazione cifre orologio
+//timer per visualizzazione cifre orologio
   tm.run();
 	
-//avvio orologio
+//orologio
   cl.run();
 	
 //verifica pressione dei pulsanti per impostazione ora
