@@ -3,6 +3,26 @@
 #include "MyClock.h"
 #include "MyTimer.h"
 
+/**
+    Orologio Nixie. Gennaio 2023. Versione 1.0
+	Nixie utilizzato: ZM1000 Philips
+	
+	Impostazione dell'orolgio:	
+	- Alla pressione prolungato del tasto si entra nelle impostazioni o si cambia il tipo impostazione
+	  La sequenza delle impostazioni è
+	  1. Impostazione 1a cifra dell'ora. Valori possibili da 0 a 2
+	  2. Impostazione 2a cifra dell'ora. Valori possibili da 0 a 9
+	  3. Impostazione 1a cifra dei minuti. Valori possibili da 0 a 5
+	  4. Impostazione 2a cifra dei minuti. Valori possibili da 0 a 9
+	  5. Impostazione modalità spegnimento notturno dalle 23 alle 6. Valori possibili: 0 - non spegne l'ora  
+	                                                                                   1 - spegne l'ora nella fascia notturna
+	  6. Uscita dalle impostazioni
+	  
+     La pressione del tasto (non prolungata) nella fascia notturna se attivito lo spegnimento mostra l'ora corrente	  
+	  
+**/
+
+
 Pulsante p1(18, 3); //pin pulsante A4, secondi per attivare il flag longPress
 //Pulsante p2(19, 3);
 
