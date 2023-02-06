@@ -4,8 +4,11 @@
 #include "MyTimer.h"
 
 /**
-    Orologio Nixie. Gennaio 2023. Versione 1.0
+    Orologio Nixie ad una cifra con Arduino Nano.
+    Gennaio 2023. Versione 1.0 Autore Simone Baldo.
+    
 	Nixie utilizzato: ZM1000 Philips
+	Transistor per alte tensioni: MPSA42 
 	
 	Impostazione dell'orolgio:	
 	- Alla pressione prolungato del tasto si entra nelle impostazioni o si cambia il tipo impostazione
@@ -18,8 +21,7 @@
 	                                                                                   1 - spegne l'ora nella fascia notturna
 	  6. Uscita dalle impostazioni
 	  
-     La pressione del tasto (non prolungata) nella fascia notturna se attivito lo spegnimento mostra l'ora corrente	  
-	  
+     La pressione del tasto (non prolungata) nella fascia notturna se attivo lo spegnimento mostra l'ora corrente	  	  
 **/
 
 
