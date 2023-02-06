@@ -73,8 +73,8 @@ void MyClock::addMin() {
 void MyClock::mostraOra() {
     sprintf(str, "%02d:%02d:%02d", ora, min, sec);
   //mostro ora corrente sempre sulla stessa riga nel serial monitor
-    Serial.print("\r");
-    Serial.print(str);
+  //Serial.print("\r");
+  //Serial.print(str);
 }
 
 char * MyClock::getHMS() {
