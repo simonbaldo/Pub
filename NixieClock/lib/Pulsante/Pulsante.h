@@ -8,9 +8,9 @@
 class Pulsante{
 
     private:
-        unsigned long tPressed;
-        unsigned long tReleased;
-        unsigned long secPress;
+        uint32_t tPressed;
+        uint32_t tReleased;
+        uint32_t long secPress;
         boolean pulPressed;
         boolean pulReleased;
         uint8_t pinPulsante;
