@@ -20,7 +20,7 @@ boolean acqOra=true;
 boolean mostraOraSpot=false;
 //boolean initDisplay=true;
 
-uint32_t tpinitD=0;   
+//uint32_t tpinitD=0;   
 uint8_t timeDiff1;  //variabile per pulsante 1
 uint8_t timeDiff2;  //variabile per pulsante 2
 uint8_t modImpo;
