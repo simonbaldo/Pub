@@ -32,7 +32,7 @@ Pulsante p1(18, 3); //pin pulsante A4, secondi per attivare il flag longPress
 MyClock cl(999);
 
 MyTimer tm(11000);   //imposto un timer ogni 11 secondi per la visualizzazione
-MyTimer ti(900);     //imposto un timer per la visualizzazione delle cifre
+MyTimer ti(600);     //imposto un timer per la visualizzazione delle cifre
 
 boolean longPress=false;
 boolean visCifra=false;
