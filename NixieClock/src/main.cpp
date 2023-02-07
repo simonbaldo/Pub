@@ -1,7 +1,3 @@
-#include <Arduino.h>
-#include "Pulsante.h"
-#include "MyClock.h"
-#include "MyTimer.h"
 
 /**
     Orologio Nixie ad una cifra con Arduino Nano.
@@ -24,6 +20,10 @@
      La pressione del tasto (non prolungata) nella fascia notturna se attivo lo spegnimento mostra l'ora corrente	  	  
 **/
 
+#include <Arduino.h>
+#include "Pulsante.h"
+#include "MyClock.h"
+#include "MyTimer.h"
 
 Pulsante p1(18, 3); //pin pulsante A4, secondi per attivare il flag longPress
 //Pulsante p2(19, 3);
