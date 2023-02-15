@@ -25,13 +25,14 @@
 #include "MyClock.h"
 #include "MyTimer.h"
 
+
 Pulsante p1(18, 3); //pin pulsante A4, secondi per attivare il flag longPress
 //Pulsante p2(19, 3);
 
 //MyClock cl(1000;); //definizione dell'orologio ad 1 secondo
 MyClock cl(999);
 
-MyTimer tm(11000);   //imposto un timer ogni 11 secondi per la visualizzazione
+MyTimer tm(9000);   //imposto un timer ogni 11 secondi per la visualizzazione
 MyTimer ti(600);     //imposto un timer per la visualizzazione delle cifre
 
 boolean longPress=false;
@@ -58,6 +59,7 @@ uint8_t catodoPrec;
 uint8_t cifraDisp;
 uint8_t spegniNotte=0; //valori possibili 0, 1. Se 1 il nixie viene spento dalle 11.00 alle 5:59
 //uint16_t delayInitD=400;
+uint8_t delayOff=4;
 
 //uint8_t catodi[10]={3, 4, 5, 6, 7, 8, 9, 10, 11, 12}; //array contente le uscite per i catodi per le cifre da 0 a 9
 uint8_t catodi[10]={10, 7, 6, 5, 4, 3, 8, 9, 12, 11}; //array contente le uscite per i catodi per le cifre da 0 a 9
@@ -154,19 +156,26 @@ void testPressedButton() {
 	      }		  
           return;
        }
-
+       if (modImpo==6) {
+	      delayOff++; 
+	      if (delayOff == 7) {
+		     delayOff=0; 
+	      }		  
+          return;
+       }
     }   
 
     //if (longPress && (timeDiff1 >0)) {
 	if (longPress && (timeDiff1 == 2)) {	
           modImpo++;
-          if  (modImpo==6) {
+          if  (modImpo==7) {
               longPress=false;
               modImpo=0;
 			  oraset=(uint8_t)(oraC1*10 + oraC2);
 			  minset=(uint8_t)(minC1*10 + minC2);
               cl.setTime(oraset, minset, 0);
 			  ti.init();
+			  cl.setOffset ((uint8_t)(delayOff * 10));
 			  dispAcceso=true;
           }
           return;
@@ -185,11 +194,11 @@ void dispOra(uint8_t cc) {
 	 if  (catodoPrec!=99)
 		 digitalWrite(catodi[catodoPrec], LOW);
 	
-	//  if (cc==99) 
-	//	  strcpy(str, "          ");
-		 //str[0]=" ";
-	//  else {       
-	//	  sprintf(str, "%01d %s", cc, cl.getHMS());
+    //if (cc==99) 
+    //  strcpy(str, "          ");
+    //  str[0]=" ";
+    //else {       
+    //  sprintf(str, "%01d %s", cc, cl.getHMS()); 
     //}  
 	
     //Serial.print("\r");	
@@ -231,6 +240,9 @@ void displayImpostazioni() {
 			else
 			if (modImpo==5) 
 			   dispOra(spegniNotte);			    
+			else
+			if (modImpo==6) 
+			   dispOra(delayOff);			    
 		}	
 		else {
 		      dispOra(99);
@@ -468,4 +480,3 @@ void loop() {
 //mostro ora oppure impostazioni 
   display();
 }
-
