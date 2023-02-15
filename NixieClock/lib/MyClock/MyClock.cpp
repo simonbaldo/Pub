@@ -10,6 +10,7 @@ void MyClock::init() {
     min = 0;
     sec = 0;
     tprec = 0;
+    offset=0;
 }
 
 void MyClock::setOra(uint8_t oo) {
@@ -30,6 +31,10 @@ uint8_t MyClock::getOra() {
 
 uint8_t MyClock::getMin() {
     return min;
+}
+
+void MyClock::setOffset(uint8_t off) {
+    offset=off;
 }
 
 void MyClock::setTime(uint8_t oo, uint8_t mm, uint8_t ss) {
@@ -53,6 +58,11 @@ void MyClock::run() {
                 }
             }
         }
+        //alle 5:50:00 aggiusto l'ora 
+        if (ora==05 && min==50 && sec==00) {
+            sec=offset;
+        }
+        
         tprec = millis();
         fcc();
     }
@@ -73,8 +83,8 @@ void MyClock::addMin() {
 void MyClock::mostraOra() {
     sprintf(str, "%02d:%02d:%02d", ora, min, sec);
   //mostro ora corrente sempre sulla stessa riga nel serial monitor
-  //Serial.print("\r");
-  //Serial.print(str);
+    Serial.print("\r");
+    Serial.print(str);
 }
 
 char * MyClock::getHMS() {
